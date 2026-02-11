@@ -1,0 +1,18 @@
+{
+  "name": "design-patterns",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "duck.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "starbuzz": "ts-node --transpile-only 3-decorator-pattern-starbuzz.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

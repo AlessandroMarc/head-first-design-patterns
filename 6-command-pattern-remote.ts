@@ -360,3 +360,19 @@ class RemoteLoader {
 
 const remote = new RemoteLoader();
 remote.main();
+
+class MacroCommand implements Command {
+    commands:Command[]
+
+    constructor (commands : Command[] ) {
+        this.commands = commands
+    }
+
+    execute() {
+        this.commands.forEach(command => command.execute())
+    }
+
+    undo(){
+        this.commands.forEach(command => command.undo())
+    }
+}

@@ -93,6 +93,7 @@ export class Waitress {
 interface Iterator<T> {
     hasNext(): boolean;
     next(): T;
+    remove(): void;
 }
 
 class DinnerMenuIterator implements Iterator<MenuItem> {
@@ -111,6 +112,14 @@ class DinnerMenuIterator implements Iterator<MenuItem> {
 
     hasNext(): boolean {
         return this.position < this.menuItems.length;
+    }
+
+    remove(): void {
+        if (this.position <= 0) {
+            throw new Error("You can't remove an item until you've done at least one next()");
+        }
+        this.menuItems.splice(this.position - 1, 1);
+        this.position -= 1;
     }
 }
 
@@ -140,6 +149,14 @@ class PancakeHouseMenuIterator implements Iterator<MenuItem> {
 
     hasNext(): boolean {
         return this.position < this.menuItems.length;
+    }
+
+    remove(): void {
+        if (this.position <= 0) {
+            throw new Error("You can't remove an item until you've done at least one next()");
+        }
+        this.menuItems.splice(this.position - 1, 1);
+        this.position -= 1;
     }
 }
 

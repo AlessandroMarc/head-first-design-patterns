@@ -220,17 +220,18 @@ class WinnerState implements State {
     }
 }
 
-class GumballMachine {
+export class GumballMachine {
     noQuarterState: NoQuarterState;
     hasQuarterState: HasQuarterState;
     soldState: SoldState;
     soldOutState: SoldOutState;
     winnerState: WinnerState;
+    location: string
 
     state: State;
     count: number = 0;
 
-    constructor(count: number) {
+    constructor(count: number, location: string) {
         this.noQuarterState = new NoQuarterState(this);
         this.hasQuarterState = new HasQuarterState(this);
         this.soldState = new SoldState(this);
@@ -238,6 +239,7 @@ class GumballMachine {
         this.winnerState = new WinnerState(this);
         this.count = count;
         this.state = count > 0 ? this.noQuarterState : this.soldOutState;
+        this.location = location
     }
 
     setState(state: State): void {
@@ -301,7 +303,7 @@ class GumballMachine {
 
 class GumballMachineTestDrive {
     main(): void {
-        const gumballMachine: GumballMachine = new GumballMachine(5);
+        const gumballMachine: GumballMachine = new GumballMachine(5, "Hall");
 
         console.log(gumballMachine);
 

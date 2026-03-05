@@ -12,10 +12,10 @@
                 "<node_internals>/**"
             ],
             "runtimeArgs": [
-                "-r",
-                "ts-node/register"
+                "--loader",
+                "ts-node/esm"
             ],
-            "program": "${workspaceFolder}/9-iterator-pattern-menus.ts"
+            "program": "${workspaceFolder}/11-access-pattern.ts"
         }
     ]
 }
